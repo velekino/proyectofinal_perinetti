@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+<br> <br> <br> <br> 
+
+
+<div class="container">
+   {% if form.errors %}
+<h1>Error en los datos ingresados!!</h1>
+{% endif %}
+    <form action="" method="POST" class="px-4 py-3">{% csrf_token %}
+      {{formulario.as_p}}
+      
+       <button type="submit" class="btn btn-primary btn-block">Register</button>
+    </form>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#"><small>Registrarse</small></a>
+    <a class="dropdown-item" href="#"><small>Forgot password?</small></a>
+ 
+   </div>
+                  
+
+
+{% endblock %}

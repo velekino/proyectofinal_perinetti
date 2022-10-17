@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    {% load static %}
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with JohnDoe landing page.">
+    <meta name="author" content="Devcrud">
+    <title>My blog App - Proyecto Final Coderhouse</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{% static 'miblogApp/assets/vendors/themify-icons/css/themify-icons.css' %}">
+    <!-- Bootstrap + JohnDoe main styles -->
+	<link rel="stylesheet" href="{% static 'miblogApp/assets/css/johndoe.css' %}">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <a href="components.html" class="btn btn-primary btn-component" data-spy="affix" data-offset-top="600"><i class="ti-shift-left-alt"></i> Admin..</a>
+    <header class="header">
+        <div class="container">
+              
+            <div class="header-content">
+                <h4 class="header-subtitle" >Hola!, soy</h4>
+                <h1 class="header-title">Mariano Perinetti</h1>
+                <h6 class="header-mono" >Consultor y Developer..</h6>
+               
+            </div>
+        </div>
+    </header>
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510">
+        <div class="container">
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a href="{% url 'index' %}" class="nav-link">Index</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'aboutme' %}" class="nav-link">Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'curriculum' %}" class="nav-link">Curriculum</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav brand">
+                    <img src="{% static 'miblogApp/assets/imgs/avatar.jpg'%}" alt="" class="brand-img">
+                    <li class="brand-txt">
+                        <h5 class="brand-title">Mariano Perinetti</h5>
+                        <div class="brand-subtitle">Consultor y Developer..</div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="{% url 'portfolio' %}" class="nav-link">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'blog' %}" class="nav-link">Blog</a>
+                    </li>
+                    <li class="nav-item last-item">
+                        <a href="{% url 'contacto' %}" class="nav-link">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+         {% block content %}
+          
+         {% endblock %}
+<!--Esto es interesante, heredando puedo usar el mismo bloque para todas las secciones :D -->
+    <section class="section">
+        <div class="container">
+
+        <h2 class="mb-5 pb-4" align="center"><span class="text-danger">Hola!</span>    
+            Si acabas de llegar bienvenido!, si ya te vas vuelve pronto!.
+            
+            </h2>   
+            <a href="{% url 'login' %}" class="nav-link">Login</a>
+            <a href="{% url 'logout' %}" class="nav-link">Logout</a>
+        </div>
+
+        
+        </section>
+      
+    <section class="section bg-dark text-center">
+       
+    </section>
+
+    
+    <footer class="footer py-3">
+        <div class="container">
+            <p class="small mb-0 text-light">
+                &copy; <script>document.write(new Date().getFullYear())</script> Created With <i class="ti-heart text-danger"></i> By <a href="http://devcrud.com" target="_blank"><span class="text-danger" title="Bootstrap 4 Themes and Dashboards">DevCRUD</span></a> 
+           
+            </p>
+        </div>
+    </footer>
+
+	<!-- core  -->
+    <script src="{% static 'miblogApp/assets/vendors/jquery/jquery-3.4.1.js'%}"></script>
+    <script src="{% static 'miblogApp/assets/vendors/bootstrap/bootstrap.bundle.js'%}"></script>
+
+    <!-- bootstrap 3 affix -->
+    <script src="{% static 'miblogApp/assets/vendors/bootstrap/bootstrap.affix.js'%}"></script>
+
+    <!-- Isotope  -->
+    <script src="{% static 'miblogApp/assets/vendors/isotope/isotope.pkgd.js'%}"></script>
+    
+    <!-- Google mpas -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap"></script>
+
+    <!-- JohnDoe js -->
+    <script src="{% static 'miblogApp/assets/js/johndoe.js"'%}></script>
+
+</body>
+</html>

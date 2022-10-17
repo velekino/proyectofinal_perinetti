@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+<br> <br> <br> <br> 
+
+
+<div class="container">
+   {% if form.errors %}
+<h1>Error en los datos ingresados!!</h1>
+{% endif %}
+    <form action="{% url 'login' %}" method="POST" class="px-4 py-3">{% csrf_token %}
+       <div class="form-group">
+          <input type="text" class="form-control" id="exampleDropdownFormEmail1" placeholder="Usuario" name="username">
+       </div>
+       <div class="form-group">
+          <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" name="password">
+       </div>
+      
+       <button type="submit" class="btn btn-primary btn-block">Login</button>
+    </form>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{% url 'registro' %}"><small>Registrarse</small></a>
+    <a class="dropdown-item" href="#"><small>Forgot password?</small></a>
+ 
+   </div>
+                  
+
+
+{% endblock %}

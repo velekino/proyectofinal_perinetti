@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="container" align=center>
+   <form action="" enctype="multipart/form-data" method="POST"> {% csrf_token %}
+      <table>
+         <h1>Seguro que desea eliminar?</h1>
+      </table>
+      <input type="submit" class="btn btn-danger" value="SI">
+      <a class="btn btn-success" href="{% url 'curriculum' %}" role="button">Volver</a>
+</form>
+</div>          
+
+
+
+
+{% endblock %}

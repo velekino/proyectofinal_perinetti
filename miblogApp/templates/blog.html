@@ -1,0 +1,87 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<nav class="navbar navbar-expand-sm navbar-dark bg-secondary rounded shadow mb-3">
+    <div class="container" >
+       
+       <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+       </button>
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto"> 
+             <li class="nav-item">
+                
+                    <a class="nav-link" href="{% url 'blogentrada' %}">Crear Entrada</a>
+                 
+             </li>
+             <li class="nav-item">
+                
+             </li>
+             <li class="nav-item">
+                <form action="/buscaentrada/" method="GET"> {% csrf_token %}
+                    <input class="form-control form-control" type="text" placeholder="buscar entradas" name="busqueda">             
+                 
+             </li>
+             <li class="nav-item">
+                
+                
+
+                <button class="ml-4 mt-1 btn btn-light btn-sm"   type="submit">Buscar</button>
+            
+
+                 </form>
+             </li>
+          </ul>                       
+       </div>
+    </div>
+ </nav>
+
+
+
+{% if lista_blog %}
+<section class="section" id="blog">
+    <div class="container">
+        <h2 class="mb-5">Ultimas <span class="text-danger">Entradas</span></h2>
+            {% for verblogR in lista_blog %}
+             
+            <section class="section" id="blog">
+                <div class="container">
+        
+        <div class="row">
+            <div class="blog-card">
+                <div class="img-holder">
+                    <img src="{% static 'miblogApp/assets/imgs/blog1.jpg'%}" alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
+                </div>
+                <div class="content-holder">
+                    <h6 class="title">{{verblogR.titulo}}</h6>
+
+                    <p class="post-details">
+                        <a href="#">{{verblogR.autor}}</a>
+                        
+                        <a href="#"><i class="ti-heart text-danger"></i>{{verblogR.fecha}}</a>
+                        <a href="{% url 'editarentrada' verblogR.id %}">Editar</a>
+                        <a href="{% url 'borrarentrada' verblogR.id %}">Eliminar</a>
+                    </p>
+                    
+                    <p>{{verblogR.texto}}</p>
+
+                     <!-- Agregar trim para mostrar resumen y no todo el texto-->   
+                    <a href="#" class="read-more">Read more <i class="ti-angle-double-right"></i></a>
+                </div>
+            </div><!-- end of blog wrapper -->
+    
+            </div><!-- end of blog wrapper -->
+
+        </div>
+    </div>
+</section>
+{% endfor %}
+        
+        {% else %}
+        <p>No hay entradas de blog en la db </p>
+        {% endif %}
+
+{% endblock %}

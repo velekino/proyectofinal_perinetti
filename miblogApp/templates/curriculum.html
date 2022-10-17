@@ -1,0 +1,78 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+ <!--Resume Section-->
+ 
+ {%for cv_item in objects_list %}
+ {% if cv_item.tipo == 1 %}
+ <section class="section" id="resume">
+    <div class="container">
+        <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
+        <div class="row">
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="mt-2">
+                            <h4>1- Experiencia</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="title text-danger">{{cvitem.ano}}</h6>
+                        <P>{{cvitem.texto_cv}}</P>
+                        <P class="subtitle">{{cvitem.texto_cv}}</P>
+                        <span href="" class="badge badge-secondary">Edit</span>
+
+                        <span href="" class="badge badge-dark">Del</span>
+                        <hr>
+                   
+                    </div>
+                </div>
+            </div>
+            {% elif cv_item.tipo == 2 %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="mt-2">
+                            <h4>2- Educacion</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="title text-danger">2017 - Present</h6>
+                        <P>B.E Computer Engineering</P>
+                        <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error corrupti recusandae obcaecati odit repellat ducimus cum, minus tempora aperiam at.</P>
+                        <hr>
+                        
+                    </div>
+                </div>
+            </div>
+            {% else cv_item.tipo == 3 %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="mt-2">
+                            <h4>3- Cursos</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="title text-danger">2017 - Present</h6>
+                        <P>B.E Computer Engineering</P>
+                        <P class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error corrupti recusandae obcaecati odit repellat ducimus cum, minus tempora aperiam at.</P>
+                        <hr>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endfor %}
+
+
+
+
+{% endblock %}

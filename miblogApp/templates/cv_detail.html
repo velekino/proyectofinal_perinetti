@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section class="section">
+   <div class="container">
+      <h1 class="mb-5 pb-4" ><span class="text-muted">{{cv.ano}}</span>  
+      </h1>  
+   <h2 class="mb-5 pb-4" ><span class="text-danger">{{cv.texto_cv}}</span>    
+
+        
+       <h3 class="mb-5 pb-4" align="center"><span class="text-warning">{{cv.subtexto}}</span>    
+     </h3>   
+     <a class="btn btn-success" href="{% url 'curriculum' %}" role="button">Volver</a>
+
+   </div>
+   </section>
+
+
+{% endblock %}

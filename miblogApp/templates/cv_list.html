@@ -1,0 +1,99 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+ <!--Resume Section-->
+
+ <section class="section" id="resume">
+    <div class="container">
+        <h2 class="mb-5"><span class="text-danger">Mi</span> Curriculum Vitae</h2>
+        <div class="row">
+         
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="mt-2">
+                            <h4>1- Experiencia</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    
+                    <div class="card-body">
+                        {% for cv in object_list %}
+                        {% if cv.tipo == 1 %}
+                        <h6 class="title text-danger">{{cv.ano}}</h6>
+                        <P>{{cv.texto_cv}}</P>
+                        <P class="subtitle">{{cv.subtexto}}</P>
+                        <a href="{% url 'editarcurriculum' cv.id %}" class="badge badge-secondary">Edit</a>
+                        <a href="{% url 'detallecurriculum' cv.id %}" class="badge badge-info">Info</a>
+
+                        <a href="{% url 'borrarcurriculum' cv.id %}" class="badge badge-dark">Del</a>
+                        <hr>
+                       
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="mt-2">
+                            <h4>2- Educacion</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% for cv in object_list %}
+                        {% if cv.tipo == 2 %}
+                        <h6 class="title text-danger">{{cv.ano}}</h6>
+                        <P>{{cv.texto_cv}}</P>
+                        <P class="subtitle">{{cv.subtexto}}</P>
+                        <a href="{% url 'editarcurriculum' cv.id %}" class="badge badge-secondary">Edit</a>
+                        <a href="{% url 'detallecurriculum' cv.id %}" class="badge badge-info">Info</a>
+
+                        <a href="{% url 'borrarcurriculum' cv.id %}" class="badge badge-dark">Del</a>
+                        <hr>
+                        
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col-md-6 col-lg-4">
+                <div class="card">
+                   <div class="card-header">
+                        <div class="mt-2">
+                            <h4>3- Cursos</h4>
+                            <span class="line"></span>  
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {% for cv in object_list %}
+                        {% if cv.tipo == 3 %}
+                        <h6 class="title text-danger">{{cv.ano}}</h6>
+                        <P>{{cv.texto_cv}}</P>
+                        <P class="subtitle">{{cv.subtexto}}</P>
+                        <a href="{% url 'editarcurriculum' cv.id %}" class="badge badge-secondary">Edit</a>
+                        <a href="{% url 'detallecurriculum' cv.id %}" class="badge badge-info">Info</a>
+                        <a href="{% url 'borrarcurriculum' cv.id %}" class="badge badge-dark">Del</a>
+                        <hr>
+                        
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+          
+        </div>
+        <a class="btn btn-success" href="{% url 'crearcurriculum' %}" role="button">Agregar</a>
+    </div>
+</section>
+
+
+
+
+{% endblock %}

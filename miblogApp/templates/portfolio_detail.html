@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+
+
+<section class="section">
+   <div class="container">
+      <h1 class="mb-5 pb-4" ><span class="text-muted">{{portfolio.tipo}}</span>  
+      </h1>  
+   <h2 class="mb-5 pb-4" ><span class="text-danger">{{portfolio.giturl}}</span>    
+
+        
+       <h3 class="mb-5 pb-4" align="center"><span class="text-warning">{{portfolio.texto_portfolio}}</span>    
+     </h3>   
+     <a class="btn btn-success" href="{% url 'portfolio' %}" role="button">Volver</a>
+
+   </div>
+   </section>
+
+
+{% endblock %}

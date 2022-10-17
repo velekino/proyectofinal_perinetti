@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% load static %}
+
+{% block content %}
+ <!--Portfolio Section-->
+ <section class="section" id="service">
+    <div class="container">
+        <h2 class="mb-5 pb-4"><span class="text-danger">Mi</span>Portfolio</h2>
+        {% for portfolio in object_list %}
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="card mb-5">
+                   <div class="card-header has-icon">
+                        <i class="ti-vector text-danger" aria-hidden="true"></i>
+                    </div>
+                   
+                    
+                    
+                    <div class="card-body px-4 py-3">
+                        <h5 class="mb-3 card-title text-dark">{{portfolio.titulo_portfolio}}</h5>
+                        <P class="subtitle">{{portfolio.giturl}}</P>
+                        <P class="subtitle">{{portfolio.texto_portfolio}}</P>
+
+                        <a href="{% url 'editarportfolio' portfolio.id %}" class="badge badge-secondary">Edit</a>
+                        <a href="{{portfolio.giturl}}" class="badge badge-info">GIT</a>
+    
+                        <a href="{% url 'borrarportfolio' portfolio.id %}" class="badge badge-dark">Del</a>
+                       
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        {% endfor %}
+        <a class="btn btn-success" href="{% url 'crearportfolio' %}" role="button">Agregar</a>
+
+    </div>
+    
+
+</section>
+
+
+{% endblock %}
